@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:tailwindcss/recommended', // tailwind用eslint
     'next/core-web-vitals',
     'google',
     'prettier',
@@ -25,6 +26,7 @@ module.exports = {
     'semi': ['error', 'never'],
     'require-jscdoc': ['off'],
     'spaced-comment': ['off'],
+    '@next/next/no-img-element': 'off',
   },
 }
 
