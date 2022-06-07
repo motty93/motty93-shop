@@ -2,8 +2,8 @@ import { NextPage } from 'next'
 import { Card } from './Card'
 
 export const Products: NextPage = () => (
-  <main className="min-h-screen m-14">
-    <div className="md:flex justify-center md:gap-6 mx-auto">
+  <main className="h-1/2 md:h-full m-14">
+    <div className="flex flex-wrap justify-center gap-4 mx-auto md:flex-wrap md:justify-start md:gap-6 ">
       <Card />
       <Card />
       <Card />
