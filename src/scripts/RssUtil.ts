@@ -24,3 +24,5 @@
 //
 //   return feed.xml()
 // }
+//
+export const generateFeedXml = () => {}

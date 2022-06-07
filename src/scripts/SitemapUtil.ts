@@ -21,3 +21,4 @@
 //
 //   return xml
 // }
+export const generateSitemapXml = async () => {}
