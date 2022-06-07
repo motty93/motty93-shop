@@ -9,6 +9,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:tailwindcss/recommended', // tailwind用eslint
+    'plugin:prettier/recommended',
     'next/core-web-vitals',
     'google',
     'prettier',
