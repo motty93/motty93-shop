@@ -22,12 +22,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss'],
   rules: {
     'semi': ['error', 'never'],
     'require-jscdoc': ['off'],
     'spaced-comment': ['off'],
     '@next/next/no-img-element': 'off',
+    'require-jsdoc': 0,
   },
 }
-
