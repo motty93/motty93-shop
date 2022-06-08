@@ -1,12 +1,11 @@
-import { AppProps } from 'next/app'
-import Script from 'next/script'
-import Head from 'next/head'
-import { RecoilRoot } from 'recoil'
-
-import { config } from '@/site.config'
-import { GA_TRACKING_ID } from '@/utils'
-import '@/styles/globals.scss'
 import { Footer, Hero } from '@/components'
+import { config } from '@/site.config'
+import '@/styles/globals.scss'
+import { GA_TRACKING_ID } from '@/utils'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import Script from 'next/script'
+import { RecoilRoot } from 'recoil'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const title = config.siteMeta.title
@@ -27,8 +26,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="canonical" href={pageUrl} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      <Script id="tagManager" async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      i
       <Script
+        id="gtag"
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Script
+        id="lazysizes"
         src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
         integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="
         crossOrigin="anonymous"

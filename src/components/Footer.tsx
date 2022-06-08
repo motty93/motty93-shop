@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
 export const Footer: NextPage = () => (
-  <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+  <footer className="p-10 rounded footer footer-center bg-base-200 text-base-content">
     <div className="grid grid-flow-col gap-4">
       <a className="link link-hover">About us(工事中)</a>
       <a className="link link-hover">Contact(工事中)</a>

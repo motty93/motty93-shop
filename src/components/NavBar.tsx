@@ -1,19 +1,20 @@
 import { NextPage } from 'next'
+import Link from 'next/link'
 
 export const NavBar: NextPage = () => (
   <div className="navbar bg-base-100">
     <div className="flex-1">
-      <a className="btn btn-ghost normal-case text-xl" href="/">
-        The shop's もてぃ
-      </a>
+      <Link className="text-xl normal-case btn btn-ghost" href="/">
+        The shop&lsquo;s もてぃ
+      </Link>
     </div>
     <div className="flex-none">
-      <ul className="menu menu-horizontal p-0">
+      <ul className="p-0 menu menu-horizontal">
         <li>
-          <a href="https://www.twitter.com/">twitter</a>
+          <Link href="https://www.twitter.com/">twitter</Link>
         </li>
         <li>
-          <a>Item 2</a>
+          <Link href="/">Item2</Link>
         </li>
       </ul>
     </div>

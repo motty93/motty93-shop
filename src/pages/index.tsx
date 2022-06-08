@@ -1,7 +1,15 @@
-import { NextPage, GetStaticPropsContext } from 'next'
 import { Products } from '@/components'
+import { GetStaticPropsContext, NextPage } from 'next'
 
-type Props = {}
+type Props = {
+  title: string
+  description: string
+}
+
+/**
+ * Return main component
+ *
+ */
 
 const Home: NextPage<Props> = (props) => {
   return (
@@ -10,6 +18,11 @@ const Home: NextPage<Props> = (props) => {
     </>
   )
 }
+
+/**
+ * props
+ *
+ */
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   // context取得するなら
