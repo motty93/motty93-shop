@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Script id="tagManager" async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-      i
       <Script
         id="gtag"
         dangerouslySetInnerHTML={{
