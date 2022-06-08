@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
 export const Card: NextPage = () => (
-  <div className="w-auto shadow-xl hover:shadow-2xl hover:cursor-pointer md:mb-4 card bg-base-100 active:bg-base-200">
+  <div className="w-96 shadow-xl hover:shadow-2xl hover:cursor-pointer mb-4 card bg-base-100 active:bg-base-200">
     <figure>
       <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" />
     </figure>
