@@ -47,7 +47,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         crossOrigin="anonymous"
       />
       <div className="wrapper">
-        <Hero />
         <Component {...pageProps} />
       </div>
       <Footer />
