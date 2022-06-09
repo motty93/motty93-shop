@@ -15,8 +15,11 @@ export interface IProduct extends MicroCMSListContent {
   description: string
   body: BodyEntity
   status: string
+  condition: string
   price: number
+  brand: string
   categories: ICategory[]
+  images?: IMicroCmsImageType[]
 }
 
 export interface ICategory extends MicroCMSListContent {
