@@ -18,6 +18,6 @@
 //   return res
 // }
 //
-export const getAllProducts = () => {
+export const getProduct = () => {
   return 'products'
 }
