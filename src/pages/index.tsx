@@ -1,4 +1,4 @@
-import { Products } from '@/components'
+import { Card } from '@/components'
 import { IProduct } from '@/types'
 import { getAllProducts } from '@/utils'
 import { NextPage } from 'next'
@@ -7,35 +7,25 @@ type Props = {
   products?: IProduct[]
 }
 
-const Home: NextPage<Props> = (props) => {
-  return (
-    <>
-      <div>{props.products[0]?.description}</div>
-      <Products />
-    </>
-  )
-}
+const Home: NextPage<Props> = ({ products }) => (
+  <main className="m-14 h-1/2 md:h-full">
+    <h1 className="mb-6 text-2xl font-bold text-center">出品してる商品</h1>
+    <div className="flex flex-wrap justify-center items-center gap-7">
+      {products.map((product) => (
+        <Card product={product} key={product.id} />
+      ))}
+      <div className="w-96"></div>
+      <div className="w-96"></div>
+    </div>
+  </main>
+)
 
-// export async function getStaticPaths() {
-//   const products = await getAllProducts()
-//   const ids = products.contents.map((product) => {
-//     return { params: { productId: product.id } }
-//   })
-//
-//   return {
-//     paths: ids,
-//     fallback: true,
-//   }
-// }
-
-// export async function getStaticProps(context: GetStaticPropsContext) {
-export async function getStaticProps() {
-  // const blogId: any = context.params?.productId || '1'
-  const products = await getAllProducts()
+export const getStaticProps = async () => {
+  const data = await getAllProducts()
 
   return {
     props: {
-      products: products,
+      products: data.contents,
     },
   }
 }
