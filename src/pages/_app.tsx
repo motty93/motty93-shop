@@ -1,4 +1,4 @@
-import { Footer, Hero } from '@/components'
+import { Footer } from '@/components'
 import { config } from '@/site.config'
 import '@/styles/globals.scss'
 import { GA_TRACKING_ID } from '@/utils'
