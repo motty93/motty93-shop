@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const Card: NextPage<Props> = ({ product }) => (
-  <div className="md:w-96 md:h-auto shadow-xl hover:shadow-2xl hover:cursor-pointer mb-4 card card-compact bg-base-100 active:bg-base-200">
+  <div className="w-64 md:w-96 md:h-auto shadow-xl hover:shadow-2xl hover:cursor-pointer mb-4 card card-compact bg-base-100 active:bg-base-200">
     <figure>
       <img className="w-32 md:w-64 h-28 md:h-auto" src={`${product.ogimage.url}`} alt={product.brand} />
     </figure>
