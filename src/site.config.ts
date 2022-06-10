@@ -1,7 +1,7 @@
 export const config = {
   siteMeta: {
     title: 'THE SHOP MOT',
-    description: '不要になったものを販売する\nもてぃのECサイト',
+    description: '不要になったものを販売する\nもてぃの情報サイト',
   },
   baseUrl: process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_BASEURL : 'http://localhost:3000',
   baseDraftUrl:
