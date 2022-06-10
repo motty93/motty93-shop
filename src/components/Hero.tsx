@@ -19,10 +19,12 @@ export const Hero: NextPage = () => {
       <div className="text-center hero-content text-neutral-content">
         <div className="max-w-lg">
           <h1 className="mb-5 text-4xl font-bold md:text-5xl lg:text-6xl">{config.siteMeta.title}</h1>
-          <p className="mb-5 text-sm md:text-base lg:text-lg whitespace-pre-wrap">
+          <p className="mb-5 text-sm whitespace-pre-wrap md:text-base lg:text-lg">
             {config.siteMeta.description}
           </p>
-          <button className="btn btn-primary" onClick={scrollToProducts}>さあ、買え</button>
+          <button className="btn btn-primary" onClick={scrollToProducts}>
+            さあ、買え
+          </button>
         </div>
       </div>
     </div>

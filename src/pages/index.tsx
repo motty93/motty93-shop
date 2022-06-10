@@ -11,8 +11,10 @@ const Home: NextPage<Props> = ({ products }) => (
   <>
     <Hero />
     <main className="m-14 h-1/2 md:h-full">
-      <h1 className="mb-6 text-xl md:text-2xl font-bold text-center" id="product-title">出品してる商品</h1>
-      <div className="flex flex-wrap justify-center items-center gap-7">
+      <h1 className="mb-6 text-xl font-bold text-center md:text-2xl" id="product-title">
+        出品してる商品
+      </h1>
+      <div className="flex flex-wrap gap-7 justify-center items-center">
         {products.map((product) => (
           <Card product={product} key={product.id} />
         ))}
