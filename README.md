@@ -5,3 +5,4 @@
 - Recoil
 - MicroCMS
 - Imgix
+- Vercel
