@@ -2,7 +2,9 @@ import { Breadcrumb, Header } from '@/components'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
 import { GetStaticPropsContext, NextPage } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Zoom from 'react-medium-image-zoom'
@@ -14,7 +16,21 @@ type Props = {
 const Product: NextPage<Props> = ({ product }) => {
   const router = useRouter()
   const [preview, setPreview] = useState(product.ogimage.url)
+  const [check, setCheck] = useState(false)
   const onSelectPreview = (e) => setPreview(e.target.src)
+  const onClickChecked = (type: string) => {
+    switch (type) {
+      case 'check':
+        setCheck(!check)
+        break
+      case 'link':
+        setInterval(() => {
+          setCheck(!check)
+        }, 1000)
+        break
+      default:
+    }
+  }
 
   if (router.isFallback) {
     return <>loading</>
@@ -22,19 +38,26 @@ const Product: NextPage<Props> = ({ product }) => {
 
   return (
     <>
+      <Head>
+        <title>{product.title}</title>
+      </Head>
       <Header />
       <div className="mx-auto max-w-screen-md md:max-w-screen-lg">
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
-          <h1 className="my-4 text-2xl font-bold">
+          <h1 className="flex items-center my-4 md:text-2xl font-bold">
             {product.title}
             <span className="badge badge-info text-white mx-2">{product.status}</span>
           </h1>
-          {product.categories.map((category) => (
-            <span className="badge badge-primary" key={category.id}>
-              {category.name}
-            </span>
-          ))}
+          <div className="flex items-center">
+            カテゴリー
+            {product.categories.map((category) => (
+              <span className="badge badge-primary md:ml-2" key={category.id}>
+                {category.name}
+              </span>
+            ))}
+          </div>
+          <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
             <div className="w-6/12 mx-auto cursor-pointer">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
@@ -86,6 +109,31 @@ const Product: NextPage<Props> = ({ product }) => {
                 />
               </p>
             </div>
+          </div>
+          <div
+            tabIndex={0}
+            className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box w-1/2 mx-auto">
+            <div className="collapse-title md:text-xl font-medium">商品説明</div>
+            <div className="collapse-content">
+              <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+            </div>
+          </div>
+          <div className="flex flex-col my-10 mx-auto">
+            <p className="flex items-center">
+              <input
+                type="checkbox"
+                checked={check}
+                className="checkbox my-3 mr-2"
+                onClick={() => onClickChecked('check')}
+              />
+              <Link href="/about">
+                <a className="underline" target="_blank" onClick={() => onClickChecked('link')}>
+                  このサイトについて
+                </a>
+              </Link>
+              を確認して同意
+            </p>
+            <button className={`btn btn-${check ? 'active' : 'disabled'}`}>申し込む</button>
           </div>
         </div>
       </div>
