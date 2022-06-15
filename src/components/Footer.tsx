@@ -4,11 +4,8 @@ import Link from 'next/link'
 export const Footer: NextPage = () => (
   <footer className="p-10 rounded footer footer-center bg-base-200 text-base-content">
     <div className="grid grid-flow-col gap-4">
-      <Link href="#">
-        <a className="link link-hover">利用規約</a>
-      </Link>
-      <Link href="#">
-        <a className="link link-hover">プライバシーポリシー</a>
+      <Link href="/about">
+        <a className="link link-hover">このサイトについて</a>
       </Link>
     </div>
     <div>
