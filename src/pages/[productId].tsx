@@ -55,6 +55,7 @@ const Product: NextPage<Props> = ({ product }) => {
                   <Image
                     src={`${product.ogimage.url}?w=820&q=100`}
                     layout="fill"
+                    objectFit="contain"
                     alt="image"
                     onClick={onSelectPreview}
                     priority={false}
@@ -67,6 +68,7 @@ const Product: NextPage<Props> = ({ product }) => {
                     <Image
                       src={image.url}
                       layout="fill"
+                      objectFit="contain"
                       alt="image"
                       onClick={onSelectPreview}
                       priority={false}
@@ -77,6 +79,7 @@ const Product: NextPage<Props> = ({ product }) => {
                 <Image
                   src="https://placeimg.com/300/300/any"
                   layout="fill"
+                  objectFit="contain"
                   alt="image"
                   onClick={onSelectPreview}
                   priority={false}
