@@ -29,6 +29,8 @@ const Product: NextPage<Props> = ({ product }) => {
         }, 1000)
         break
       default:
+        console.log('hoge')
+        break
     }
   }
 
@@ -112,13 +114,13 @@ const Product: NextPage<Props> = ({ product }) => {
           </div>
           <div
             tabIndex={0}
-            className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box w-1/2 mx-auto">
+            className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
             <div className="collapse-title md:text-xl font-medium">商品説明</div>
             <div className="collapse-content">
               <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
             </div>
           </div>
-          <div className="flex flex-col my-10 mx-auto">
+          <div className="flex flex-col my-5 md:my-10 mx-auto">
             <p className="flex items-center">
               <input
                 type="checkbox"
