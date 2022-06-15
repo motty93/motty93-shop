@@ -124,7 +124,7 @@ const Product: NextPage<Props> = ({ product }) => {
                 type="checkbox"
                 checked={check}
                 className="checkbox my-3 mr-2"
-                onClick={() => onClickChecked('check')}
+                onChange={() => onClickChecked('check')}
               />
               <Link href="/about">
                 <a className="underline" target="_blank" onClick={() => onClickChecked('link')}>
