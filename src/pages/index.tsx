@@ -12,7 +12,7 @@ const Home: NextPage<Props> = ({ products }) => (
     <Hero />
     <main className="m-14 h-1/2 md:h-full">
       <h1 className="mb-6 text-xl font-bold text-center md:text-2xl" id="product-title">
-        出品してる商品
+        いらないもの一覧
       </h1>
       <div className="flex flex-wrap gap-7 justify-center items-center">
         {products.map((product) => (
