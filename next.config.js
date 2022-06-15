@@ -6,6 +6,15 @@ const nextConfig = {
 
     return config
   },
+  images: {
+    domains: [
+      'images.microcms-assets.io',
+      'i.gyazo.com',
+      'grandsaisonmotty.imgix.net',
+      'placeimg.com',
+      'localhost',
+    ],
+  },
 }
 
 module.exports = nextConfig
