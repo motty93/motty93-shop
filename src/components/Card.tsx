@@ -13,7 +13,11 @@ export const Card: React.FC<Props> = ({ product }) => (
       </figure>
       <div className="card-body">
         <h2 className="text-sm font-bold md:text-xl card-title">{product.title}</h2>
-        <div className="text-xs md:text-sm badge badge-secondary">{product.condition}</div>
+        <div className="inline">
+          <span className="text-xs md:text-sm badge badge-secondary">{product.condition}</span>
+          <span className="text-xs md:text-sm badge badge-info text-white mx-2">{product.status}</span>
+        </div>
+        <p className="text-xs md:text-base">¥{product.price.toLocaleString()}</p>
         <p className="text-xs whitespace-pre-wrap md:text-base">{product.description}</p>
         <div className="justify-end card-actions">
           {product.categories.map((category) => (
