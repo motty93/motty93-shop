@@ -63,9 +63,8 @@ const Product: NextPage<Props> = ({ product }) => {
               </p>
               {product.images &&
                 product.images.map((image) => (
-                  <p className="relative cursor-pointer mx-3 rounded-md w-20">
+                  <p className="relative cursor-pointer mx-3 rounded-md w-20" key={image.url}>
                     <Image
-                      key={image.url}
                       src={image.url}
                       layout="fill"
                       alt="image"
