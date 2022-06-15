@@ -11,7 +11,7 @@ export const Breadcrumb: React.FC<Props> = ({ product }) => {
       <ul>
         <li>
           <Link href="/">
-            <a>商品一覧</a>
+            <a>ホーム</a>
           </Link>
         </li>
         <li>{product.title}</li>
