@@ -1,12 +1,11 @@
 import { IProduct } from '@/types'
-import { NextPage } from 'next'
 import Link from 'next/link'
 
 type Props = {
   product: IProduct
 }
 
-export const Card: NextPage<Props> = ({ product }) => (
+export const Card: React.FC<Props> = ({ product }) => (
   <Link href="/[productId]" as={`/${product.id}`}>
     <a className="mb-4 w-64 shadow-xl hover:shadow-2xl hover:cursor-pointer md:w-96 md:h-auto card card-compact bg-base-100 active:bg-base-200">
       <figure className="pt-3 md:pt-6">
