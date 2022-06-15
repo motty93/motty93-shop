@@ -23,7 +23,15 @@ export const getAllProducts = async (): Promise<MicroCmsResponse<IProduct>> => {
 
 export const getCategories = async (): Promise<MicroCmsResponse<ICategory>> => {
   const res = await axios.get(`${apiRoot}/categories`, {
-    headers: { 'X-MICROCMS-API-KEY': config.apiKey },
+    headers: { 'Content-type': 'application/json', 'X-MICROCMS-API-KEY': config.apiKey },
+  })
+
+  return res.data
+}
+
+export const getProductById = async (productId: string): Promise<IProduct> => {
+  const res = await axios.get(`${apiRoot}/products/${productId}?depth=2`, {
+    headers: { 'Content-type': 'application/json', 'X-MICROCMS-API-KEY': config.apiKey },
   })
 
   return res.data
