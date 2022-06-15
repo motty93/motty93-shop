@@ -6,8 +6,6 @@ type Props = {
 }
 
 export const Breadcrumb: React.FC<Props> = ({ product }) => {
-  console.log(product)
-
   return (
     <div className="text-sm breadcrumbs">
       <ul>
