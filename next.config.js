@@ -13,6 +13,7 @@ const nextConfig = {
       'grandsaisonmotty.imgix.net',
       'placeimg.com',
       'localhost',
+      'shop.motty93.com',
     ],
   },
 }
