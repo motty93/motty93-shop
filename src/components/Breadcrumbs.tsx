@@ -15,7 +15,7 @@ export const Breadcrumb: React.FC<Props> = (props) => {
             <a>ホーム</a>
           </Link>
         </li>
-        <li>{props.product ? props.product.title : props.title}</li>
+        <li>{props.product ? props.product.id : props.title}</li>
       </ul>
     </div>
   )
