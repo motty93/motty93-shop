@@ -1,8 +1,8 @@
-import DOMPurify from 'dompurify'
 import { Breadcrumb, Header } from '@/components'
 import { convertToHtml } from '@/scripts/htmlUtil'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
+import DOMPurify from 'dompurify'
 import { GetStaticPropsContext, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -74,7 +74,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
           <span className="badge badge-info text-white my-2 lg:my-4">{product.status}</span>
-          <h1 className="flex items-center md:text-2xl font-bold">{product.title}</h1>
+          <h1 className="flex items-center lg:text-2xl font-bold">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
             {product.categories.map((category) => (
@@ -85,7 +85,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
           </div>
           <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
-            <div className="lg:w-6/12 mx-auto cursor-pointer">
+            <div className="md:w-6/12 mx-auto cursor-pointer">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 {preview && (
                   <Image
@@ -127,14 +127,14 @@ const Product: NextPage<Props> = ({ product, body }) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 md:mx-auto">
               <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">出品理由</div>
               <div className="collapse-content">
                 <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
               </div>
             </div>
-            <div className="flex-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
               <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">商品説明</div>
               <div className="collapse-content">
