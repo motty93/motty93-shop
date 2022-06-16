@@ -39,7 +39,7 @@ const About: NextPage = () => (
         <div className="my-3 text-base md:text-lg">
           <p>基本twitterDMで決済・配送のやり取りをする予定です。</p>
           <p>
-            もちろん、<span className="bg-emerald-200">discord/facebook massenger/gmail/slack</span>
+            もちろん、<span className="bg-emerald-200">discord/facebook messenger/gmail/slack</span>
             など、他プラットフォームでの連絡も歓迎です。
           </p>
           <p>購入者から連絡がきた段階で「販売中」から「商談中」に切り替えます（手動）</p>
