@@ -1,4 +1,6 @@
+import DOMPurify from 'dompurify'
 import { Breadcrumb, Header } from '@/components'
+import { convertToHtml } from '@/scripts/htmlUtil'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
 import { GetStaticPropsContext, NextPage } from 'next'
@@ -6,17 +8,20 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Zoom from 'react-medium-image-zoom'
 
 type Props = {
   product: IProduct
+  body: string
 }
 
-const Product: NextPage<Props> = ({ product }) => {
+const Product: NextPage<Props> = ({ product, body }) => {
   const router = useRouter()
   const [preview, setPreview] = useState(product.ogimage.url)
   const [check, setCheck] = useState(false)
+  const [htmlString, setHtmlString] = useState<string>('')
+
   const onSelectPreview = (e) => setPreview(e.target.src)
   const onClickChecked = (type: string) => {
     switch (type) {
@@ -34,9 +39,31 @@ const Product: NextPage<Props> = ({ product }) => {
     }
   }
 
+  useEffect(() => {
+    if (body) {
+      // XSS対策
+      setHtmlString(DOMPurify().sanitize(body))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (htmlString.length > 0) {
+      const s = document.createElement('script')
+      s.type = 'text/javascript'
+      s.setAttribute('src', '//www.instagram.com/embed.js')
+      s.setAttribute('async', 'true')
+      document.head.appendChild(s)
+
+      if ((window as any).instgrm) {
+        ;(window as any).instgrm.Embeds.process()
+      }
+    }
+  }, [htmlString])
+
   if (router.isFallback) {
     return <>loading</>
   }
+  console.log(product)
 
   return (
     <>
@@ -48,9 +75,7 @@ const Product: NextPage<Props> = ({ product }) => {
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
           <span className="badge badge-info text-white my-2 lg:my-4">{product.status}</span>
-          <h1 className="flex items-center md:text-2xl font-bold">
-            {product.title}
-          </h1>
+          <h1 className="flex items-center md:text-2xl font-bold">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
             {product.categories.map((category) => (
@@ -100,24 +125,25 @@ const Product: NextPage<Props> = ({ product }) => {
                     />
                   </p>
                 ))}
-              <p className="relative cursor-pointer mx-3 rounded-md w-20">
-                <Image
-                  src="https://placeimg.com/300/300/any"
-                  layout="fill"
-                  objectFit="contain"
-                  alt="image"
-                  onClick={onSelectPreview}
-                  priority={false}
-                />
-              </p>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col">
+            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+              <input type="checkbox" className="peer" />
+              <div className="collapse-title md:text-xl font-medium">出品理由</div>
+              <div className="collapse-content">
+                <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+              </div>
+            </div>
             <div className="flex-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
               <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">商品説明</div>
               <div className="collapse-content">
-                <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+                <div className="md:text-lg whitespace-pre-wrap">
+                  {htmlString.length > 0 && (
+                    <div className="post" dangerouslySetInnerHTML={{ __html: htmlString }} />
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -159,10 +185,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const productId: any = context.params?.productId || '1'
   const product = await getProductById(productId)
+  const body = convertToHtml(product.body)
 
   return {
     props: {
       product,
+      body,
     },
   }
 }
