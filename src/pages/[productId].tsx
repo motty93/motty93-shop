@@ -85,11 +85,11 @@ const Product: NextPage<Props> = ({ product, body }) => {
           </div>
           <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
-            <div className="w-6/12 mx-auto cursor-pointer">
+            <div className="lg:w-6/12 mx-auto cursor-pointer">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 {preview && (
                   <Image
-                    src={preview}
+                    src={`${product.ogimage.url}?w=820&q=100`}
                     alt="ogimage"
                     width={product.ogimage.width}
                     height={product.ogimage.height}
