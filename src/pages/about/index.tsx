@@ -103,7 +103,7 @@ const About: NextPage = () => (
         </div>
         <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">プライバシーポリシー</h2>
         <div className="my-3 text-base md:text-lg">
-          <p>商談のため購入希望者の氏名・メールアドレス・LINE IDを収集します。</p>
+          <p>商談のため購入希望者の住所・氏名・メールアドレス・LINE IDを収集します。</p>
           <p>この収集した情報は、shop.motty93.comにおける購入手続きの遂行以外には利用いたしません。</p>
         </div>
       </div>
