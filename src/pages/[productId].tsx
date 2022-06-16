@@ -112,12 +112,14 @@ const Product: NextPage<Props> = ({ product }) => {
               </p>
             </div>
           </div>
-          <div
-            tabIndex={0}
-            className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
-            <div className="collapse-title md:text-xl font-medium">商品説明</div>
-            <div className="collapse-content">
-              <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+          <div className="flex">
+            <div
+              tabIndex={0}
+              className="flex-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+              <div className="collapse-title md:text-xl font-medium">商品説明</div>
+              <div className="collapse-content">
+                <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+              </div>
             </div>
           </div>
           <div className="flex flex-col my-5 md:my-10 mx-auto">
