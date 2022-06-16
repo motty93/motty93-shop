@@ -44,17 +44,17 @@ const Product: NextPage<Props> = ({ product }) => {
         <title>{product.title}</title>
       </Head>
       <Header />
-      <div className="mx-auto max-w-screen-md md:max-w-screen-lg">
+      <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
-          <h1 className="flex items-center my-4 md:text-2xl font-bold">
+          <span className="badge badge-info text-white my-2 lg:my-4">{product.status}</span>
+          <h1 className="flex items-center md:text-2xl font-bold">
             {product.title}
-            <span className="badge badge-info text-white mx-2">{product.status}</span>
           </h1>
           <div className="flex items-center">
             カテゴリー
             {product.categories.map((category) => (
-              <span className="badge badge-primary md:ml-2" key={category.id}>
+              <span className="badge badge-primary ml-2" key={category.id}>
                 {category.name}
               </span>
             ))}
@@ -113,9 +113,8 @@ const Product: NextPage<Props> = ({ product }) => {
             </div>
           </div>
           <div className="flex">
-            <div
-              tabIndex={0}
-              className="flex-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+            <div className="flex-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+              <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">商品説明</div>
               <div className="collapse-content">
                 <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
