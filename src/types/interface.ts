@@ -13,7 +13,7 @@ export interface IProduct extends MicroCMSListContent {
   ogimage: IMicroCmsImageType
   title: string
   description: string
-  body: BodyEntity
+  body: string
   status: string
   condition: string
   price: number

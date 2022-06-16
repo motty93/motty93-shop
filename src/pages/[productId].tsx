@@ -20,7 +20,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
   const router = useRouter()
   const [preview, setPreview] = useState(product.ogimage.url)
   const [check, setCheck] = useState(false)
-  const [htmlString, setHtmlString] = useState<string>('')
+  const [htmlString, setHtmlString] = useState('')
 
   const onSelectPreview = (e) => setPreview(e.target.src)
   const onClickChecked = (type: string) => {
@@ -42,9 +42,9 @@ const Product: NextPage<Props> = ({ product, body }) => {
   useEffect(() => {
     if (body) {
       // XSS対策
-      setHtmlString(DOMPurify().sanitize(body))
+      setHtmlString(DOMPurify.sanitize(body))
     }
-  }, [])
+  }, [htmlString])
 
   useEffect(() => {
     if (htmlString.length > 0) {
@@ -63,7 +63,6 @@ const Product: NextPage<Props> = ({ product, body }) => {
   if (router.isFallback) {
     return <>loading</>
   }
-  console.log(product)
 
   return (
     <>
