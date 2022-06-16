@@ -1,10 +1,8 @@
-import { BodyEntity } from '@/types'
 import hljs from 'highlight.js'
 import { JSDOM } from 'jsdom'
 
-export const convertToHtml = (bodyEntity: BodyEntity): string => {
-  const htmlString = bodyEntity.richText
-  const dom = new JSDOM(htmlString)
+export const convertToHtml = (body: string): string => {
+  const dom = new JSDOM(body)
   setCodeHighlight(dom.window.document.querySelectorAll('pre code'))
   setLazyLoad(dom.window.document.querySelectorAll('img'))
 
