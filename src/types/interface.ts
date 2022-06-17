@@ -9,12 +9,14 @@ export type BodyEntity = {
   markdown?: string
 }
 
+export type BuyingStatus = 'buying' | 'sold' | 'negotiation' | 'delivery' | 'suspension'
+
 export interface IProduct extends MicroCMSListContent {
   ogimage: IMicroCmsImageType
   title: string
   description: string
   body: string
-  status: string
+  status: BuyingStatus[]
   condition: string
   price: number
   brand: string

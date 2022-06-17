@@ -2,6 +2,7 @@ import { Breadcrumb, Header } from '@/components'
 import { convertToHtml } from '@/scripts/htmlUtil'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
+import { convertToStatus } from '@/utils/buyStatus'
 import DOMPurify from 'dompurify'
 import { GetStaticPropsContext, NextPage } from 'next'
 import Head from 'next/head'
@@ -18,6 +19,7 @@ type Props = {
 
 const Product: NextPage<Props> = ({ product, body }) => {
   const router = useRouter()
+  const status = convertToStatus(product.status[0])
   const [preview, setPreview] = useState(product.ogimage.url)
   const [check, setCheck] = useState(false)
   const [htmlString, setHtmlString] = useState('')
@@ -73,7 +75,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
       <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
-          <span className="badge badge-info text-white my-2 lg:my-4">{product.status}</span>
+          <span className="badge badge-info text-white my-2 lg:my-4">{status}</span>
           <h1 className="flex items-center lg:text-2xl font-bold">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
