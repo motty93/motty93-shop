@@ -87,7 +87,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
           </div>
           <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
-            <div className="md:w-6/12 mx-auto cursor-pointer">
+            <div className="md:w-6/12 mx-auto">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 {preview && (
                   <Image
@@ -129,14 +129,14 @@ const Product: NextPage<Props> = ({ product, body }) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 md:mx-auto">
+            <div className="collapse collapse-arrow bg-base-100 rounded-box md:w-1/2 md:mx-auto">
               <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">出品理由</div>
               <div className="collapse-content">
                 <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
               </div>
             </div>
-            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:w-1/2 mx-auto">
+            <div className="collapse collapse-arrow bg-base-100 rounded-box md:w-1/2 mx-auto">
               <input type="checkbox" className="peer" />
               <div className="collapse-title md:text-xl font-medium">商品説明</div>
               <div className="collapse-content">
