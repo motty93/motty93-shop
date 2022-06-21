@@ -19,7 +19,7 @@ type Props = {
 
 const Product: NextPage<Props> = ({ product, body }) => {
   const router = useRouter()
-  const status = convertToStatus(product.status[0])
+  const status = convertToStatus(product)
   const [preview, setPreview] = useState(product.ogimage.url)
   const [check, setCheck] = useState(false)
   const [htmlString, setHtmlString] = useState('')

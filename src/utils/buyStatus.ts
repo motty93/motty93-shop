@@ -1,7 +1,9 @@
-import { BuyingStatus } from '@/types'
+import { IProduct } from '@/types'
 
-export const convertToStatus = (type: BuyingStatus) => {
-  switch (type) {
+export const convertToStatus = (product: IProduct) => {
+  const status = product.status[0]
+
+  switch (status) {
     case 'buying':
       return '販売中'
     case 'sold':

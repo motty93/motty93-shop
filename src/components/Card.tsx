@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const Card: React.FC<Props> = ({ product }) => {
-  const status = convertToStatus(product.status[0])
+  const status = convertToStatus(product)
 
   return (
     <Link href="/[productId]" as={`/${product.id}`}>
