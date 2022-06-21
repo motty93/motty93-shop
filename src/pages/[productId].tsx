@@ -25,21 +25,7 @@ const Product: NextPage<Props> = ({ product, body }) => {
   const [htmlString, setHtmlString] = useState('')
 
   const onSelectPreview = (e) => setPreview(e.target.src)
-  const onClickChecked = (type: string) => {
-    switch (type) {
-      case 'check':
-        setCheck(!check)
-        break
-      case 'link':
-        setInterval(() => {
-          setCheck(!check)
-        }, 1000)
-        break
-      default:
-        console.log('hoge')
-        break
-    }
-  }
+  const onClickChecked = () => setCheck(!check)
 
   useEffect(() => {
     if (body) {
@@ -154,10 +140,10 @@ const Product: NextPage<Props> = ({ product, body }) => {
                 type="checkbox"
                 checked={check}
                 className="checkbox my-3 mr-2"
-                onChange={() => onClickChecked('check')}
+                onChange={() => onClickChecked()}
               />
               <Link href="/about">
-                <a className="underline" target="_blank" onClick={() => onClickChecked('link')}>
+                <a className="underline" target="_blank" onClick={() => onClickChecked()}>
                   このサイトについて
                 </a>
               </Link>
