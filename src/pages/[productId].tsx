@@ -154,7 +154,9 @@ const Product: NextPage<Props> = ({ product, body }) => {
                   </Link>
                   を確認して同意
                 </p>
-                <button className={`btn btn-${check ? 'active' : 'disabled'}`} onClick={() => onPurchaseApply()}>
+                <button
+                  className={`btn btn-${check ? 'active' : 'disabled'}`}
+                  onClick={() => onPurchaseApply()}>
                   申し込む
                 </button>
               </>
