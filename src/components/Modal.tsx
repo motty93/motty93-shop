@@ -1,14 +1,15 @@
 import { IProduct } from '@/types'
-import { useRouter } from 'next/router'
 
 type Props = {
   product: IProduct
 }
 
 export const Modal: React.FC<Props> = ({ product }) => {
-  const router = useRouter()
-  const onPurchaseApply = () => {
-    router.push(`/api/purchase?id=${product.id}`)
+  const onPurchaseApply = async () => {
+    const res = await fetch(`/api/purchase?id=${product.id}`)
+
+    console.log(res)
+    return res
   }
 
   return (
@@ -26,9 +27,9 @@ export const Modal: React.FC<Props> = ({ product }) => {
             マジで購入しますか？
           </p>
           <div className="modal-action">
-            <button className="btn" onClick={onPurchaseApply}>
+            <label htmlFor="my-modal" className="btn" onClick={() => onPurchaseApply()}>
               購入する
-            </button>
+            </label>
           </div>
         </label>
       </label>
