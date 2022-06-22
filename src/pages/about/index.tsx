@@ -42,9 +42,16 @@ const About: NextPage = () => (
             もちろん、<span className="bg-emerald-100">discord/facebook messenger/gmail/slack</span>
             など、他プラットフォームでの連絡も歓迎です。
           </p>
-          <p>購入申請を行うと、もてぃへ<span className="bg-yellow-200">購入申請通知が来るようになっています。</span></p>
+          <p>
+            購入申請を行うと、もてぃへ
+            <span className="bg-yellow-200">購入申請通知が来るようになっています。</span>
+          </p>
           <p>購入者から連絡がきた段階で「販売中」から「商談中」に切り替えます（手動）</p>
-          <p><span className="bg-red-200">商談中に切り替わった後、30分以内に連絡が無い場合、販売中に戻させていただきます（手動）</span></p>
+          <p>
+            <span className="bg-red-200">
+              商談中に切り替わった後、30分以内に連絡が無い場合、販売中に戻させていただきます（手動）
+            </span>
+          </p>
           <p className="my-3">
             リアルタイムで在庫管理が出来ない都合上、
             <span className="bg-yellow-200">
