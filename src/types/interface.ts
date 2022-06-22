@@ -20,6 +20,7 @@ export interface IProduct extends MicroCMSListContent {
   condition: string
   price: number
   brand: string
+  applied: boolean
   categories: ICategory[]
   images?: IMicroCmsImageType[]
 }
