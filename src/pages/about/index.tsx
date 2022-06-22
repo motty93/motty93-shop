@@ -39,7 +39,7 @@ const About: NextPage = () => (
         <div className="my-3 text-base md:text-lg">
           <p>基本twitterDMで決済・配送のやり取りをする予定です。</p>
           <p>
-            もちろん、<span className="bg-emerald-200">discord/facebook messenger/gmail/slack</span>
+            もちろん、<span className="bg-emerald-100">discord/facebook messenger/gmail/slack</span>
             など、他プラットフォームでの連絡も歓迎です。
           </p>
           <p>購入申請を行うと、もてぃへ<span className="bg-yellow-200">購入申請通知が来るようになっています。</span></p>
@@ -75,29 +75,29 @@ const About: NextPage = () => (
         <div className="my-3 text-base md:text-lg">
           <p className="mt-2">通販サイトではないけど、書くとするなら以下です。</p>
           <p className="mt-2">
-            <span className="text-bold">url：</span> https://shop.motty93.com
+            <span className="font-bold">url：</span> https://shop.motty93.com
           </p>
           <p className="mt-2">
-            <span className="text-bold">email：</span> rdwbocungelt5@gmail.com
+            <span className="font-bold">email：</span> rdwbocungelt5@gmail.com
           </p>
           <p className="mt-2">
-            <span className="text-bold">販売価格：</span> 各販売ページの参考価格に基づき、協議のもと決定する
+            <span className="font-bold">販売価格：</span> 各販売ページの参考価格に基づき、協議のもと決定する
           </p>
           <p className="mt-2">
-            <span className="text-bold">支払方法：</span> PayPay / LINE Pay / 銀行振込による先払い
+            <span className="font-bold">支払方法：</span> PayPay / LINE Pay / 銀行振込による先払い
           </p>
           <p className="mt-2">
-            <span className="text-bold">商品代金以外の必要経費：</span>{' '}
+            <span className="font-bold">商品代金以外の必要経費：</span>{' '}
             振込手数料、決済手数料、配送料などの支払い手数料
           </p>
           <p className="mt-2">
-            <span className="text-bold">商品引渡し時期：</span> 販売者・購入者の協議のもと決定する
+            <span className="font-bold">商品引渡し時期：</span> 販売者・購入者の協議のもと決定する
           </p>
           <p className="mt-2">
-            <span className="text-bold">不良品について：</span> １週間以内であれば返品可能
+            <span className="font-bold">不良品について：</span> １週間以内であれば返品可能
           </p>
           <p className="mt-2">
-            <span className="text-bold">返品について：</span> 不良品の場合を除いて不可
+            <span className="font-bold">返品について：</span> 不良品の場合を除いて不可
           </p>
           <p className="mt-2">
             ※上記以外の事項に関しましては、お取引の際に請求があれば遅延なく提示いたします。
@@ -107,6 +107,21 @@ const About: NextPage = () => (
         <div className="my-3 text-base md:text-lg">
           <p>商談のため購入希望者の住所・氏名・メールアドレス・LINE IDを収集します。</p>
           <p>この収集した情報は、shop.motty93.comにおける購入手続きの遂行以外には利用いたしません。</p>
+        </div>
+        <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">技術スタック（興味ないと思うけど）</h2>
+        <div className="my-3 text-base md:text-lg">
+          <ul className="px-6 list-disc">
+            <li>Next.js</li>
+            <li>TailwindCSS</li>
+            <li>daisyUI</li>
+            <li>Recoil</li>
+            <li>microCMS</li>
+            <li>Imgix</li>
+            <li>Google Cloud Storage</li>
+            <li>Vercel</li>
+            <li>LINE Notify</li>
+            <li>熟練の技術力（嘘）</li>
+          </ul>
         </div>
       </div>
     </div>

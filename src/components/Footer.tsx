@@ -14,7 +14,7 @@ export const Footer: NextPage = () => (
     <div>
       <div className="grid grid-flow-col gap-4">
         <Link href="https://www.twitter.com/smo_t93">
-          <a className="link link-hover">
+          <a className="link link-hover" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -26,7 +26,7 @@ export const Footer: NextPage = () => (
           </a>
         </Link>
         <Link href="https://github.com/motty93/motty93-shop">
-          <a className="link link-hover">
+          <a className="link link-hover" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
