@@ -1,4 +1,5 @@
 import { IProduct } from '@/types'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Alert } from './Alert'
 
@@ -7,11 +8,15 @@ type Props = {
 }
 
 export const Modal: React.FC<Props> = ({ product }) => {
+  const router = useRouter()
   const [status, setStatus] = useState(false)
   const onPurchaseApply = async () => {
     const res = await fetch(`/api/purchase?id=${product.id}`)
 
     setStatus(res.ok)
+    setTimeout(() => {
+      router.push('/')
+    }, 2000)
   }
 
   return (
