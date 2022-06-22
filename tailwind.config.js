@@ -8,18 +8,18 @@ module.exports = {
         azeretmono: ['Azeret Mono'],
       },
       animation: {
-        fadeInOut: 'fadeInOut 2s ease-in forwards',
+        fadeOut: 'fadeOut 3s ease-out forwards',
       },
       keyframes: {
-        fadeInOut: {
+        fadeOut: {
           '0%': {
             transform: 'translateY(0rem)',
           },
-          '20%': {
-            transform: 'translateY(-6rem)',
+          '50%': {
+            transform: 'translateY(0rem)',
           },
-          '70%': {
-            transform: 'translateY(-6rem)',
+          '100%': {
+            transform: 'translateY(6rem)',
           },
         },
       },

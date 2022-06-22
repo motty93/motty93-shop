@@ -1,5 +1,5 @@
 export const Alert: React.FC = () => (
-  <div className="fixed left-0 -bottom-20 animate-fadeInOut md:left-auto md:right-3">
+  <div className="fixed left-0 bottom-3 animate-fadeOut md:left-auto md:right-3">
     <div className="alert alert-success shadow-lg">
       <div>
         <svg
