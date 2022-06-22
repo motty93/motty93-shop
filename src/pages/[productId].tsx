@@ -26,6 +26,9 @@ const Product: NextPage<Props> = ({ product, body }) => {
 
   const onSelectPreview = (e) => setPreview(e.target.src)
   const onClickChecked = () => setCheck(!check)
+  const onPurchaseApply = () => {
+    router.push(`/api/purchase?id=${product.id}`)
+  }
 
   useEffect(() => {
     if (body) {
@@ -135,21 +138,36 @@ const Product: NextPage<Props> = ({ product, body }) => {
             </div>
           </div>
           <div className="flex flex-col my-5 md:my-10 mx-auto">
-            <p className="flex items-center">
-              <input
-                type="checkbox"
-                checked={check}
-                className="checkbox my-3 mr-2"
-                onChange={() => onClickChecked()}
-              />
-              <Link href="/about">
-                <a className="underline" target="_blank" onClick={() => onClickChecked()}>
-                  このサイトについて
-                </a>
-              </Link>
-              を確認して同意
-            </p>
-            <button className={`btn btn-${check ? 'active' : 'disabled'}`}>申し込む</button>
+            {product.status[0] === 'buying' ? (
+              <>
+                <p className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={check}
+                    className="checkbox my-3 mr-2"
+                    onChange={onClickChecked}
+                  />
+                  <Link href="/about">
+                    <a className="underline" target="_blank" onClick={onClickChecked}>
+                      このサイトについて
+                    </a>
+                  </Link>
+                  を確認して同意
+                </p>
+                <button className={`btn btn-${check ? 'active' : 'disabled'}`} onClick={() => onPurchaseApply()}>
+                  申し込む
+                </button>
+              </>
+            ) : (
+              <p className="flex items-center">
+                この商品は{status}です。
+                <Link href="https://twitter.com/smo_t93">
+                  <a className="underline" target="_blank">
+                    管理者にお問い合わせ下さい。
+                  </a>
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       </div>
