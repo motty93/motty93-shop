@@ -1,4 +1,4 @@
-import { Breadcrumb, Header } from '@/components'
+import { Breadcrumb, Header, Modal } from '@/components'
 import { convertToHtml } from '@/scripts/htmlUtil'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
@@ -26,9 +26,6 @@ const Product: NextPage<Props> = ({ product, body }) => {
 
   const onSelectPreview = (e) => setPreview(e.target.src)
   const onClickChecked = () => setCheck(!check)
-  const onPurchaseApply = () => {
-    router.push(`/api/purchase?id=${product.id}`)
-  }
 
   useEffect(() => {
     if (body) {
@@ -154,11 +151,10 @@ const Product: NextPage<Props> = ({ product, body }) => {
                   </Link>
                   を確認して同意
                 </p>
-                <button
-                  className={`btn btn-${check ? 'active' : 'disabled'}`}
-                  onClick={() => onPurchaseApply()}>
+                <label htmlFor="my-modal" className={`btn btn-${check ? 'active' : 'disabled'} modal-button`}>
                   申し込む
-                </button>
+                </label>
+                <Modal product={product} />
               </>
             ) : (
               <p className="flex items-center">
