@@ -7,6 +7,22 @@ module.exports = {
         kosugimaru: ['Kosugi Maru'],
         azeretmono: ['Azeret Mono'],
       },
+      animation: {
+        fadeInOut: 'fadeInOut 2s ease-in forwards',
+      },
+      keyframes: {
+        fadeInOut: {
+          '0%': {
+            transform: 'translateY(0rem)',
+          },
+          '20%': {
+            transform: 'translateY(-6rem)',
+          },
+          '70%': {
+            transform: 'translateY(-6rem)',
+          },
+        },
+      },
     },
   },
   plugins: [require('daisyui')],

@@ -1,15 +1,17 @@
 import { IProduct } from '@/types'
+import { useState } from 'react'
+import { Alert } from './Alert'
 
 type Props = {
   product: IProduct
 }
 
 export const Modal: React.FC<Props> = ({ product }) => {
+  const [status, setStatus] = useState(false)
   const onPurchaseApply = async () => {
     const res = await fetch(`/api/purchase?id=${product.id}`)
 
-    console.log(res)
-    return res
+    setStatus(res.ok)
   }
 
   return (
@@ -22,7 +24,7 @@ export const Modal: React.FC<Props> = ({ product }) => {
           </label>
           <h3 className="text-lg font-bold pb-2">申し込み前確認</h3>
           <p className="py-4">
-            購入申し込みをすると、販売者にLINE通知が届きます。
+            購入申し込みをすると、販売者(もてぃ)にLINE通知が届きます。
             <br />
             マジで購入しますか？
           </p>
@@ -33,6 +35,7 @@ export const Modal: React.FC<Props> = ({ product }) => {
           </div>
         </label>
       </label>
+      {status && <Alert />}
     </>
   )
 }
