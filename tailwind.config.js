@@ -8,7 +8,7 @@ module.exports = {
         azeretmono: ['Azeret Mono'],
       },
       animation: {
-        fadeOut: 'fadeOut 3s ease-out forwards',
+        fadeOut: 'fadeOut 4s ease-out forwards',
       },
       keyframes: {
         fadeOut: {
