@@ -1,11 +1,11 @@
-import { Breadcrumb, Header, Modal } from '@/components'
+import { Breadcrumb, Header, Meta, Modal } from '@/components'
 import { convertToHtml } from '@/scripts/htmlUtil'
+import { config } from '@/site.config'
 import { IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
 import { convertToStatus } from '@/utils/buyStatus'
 import DOMPurify from 'dompurify'
 import { GetStaticPropsContext, NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -15,9 +15,10 @@ import Zoom from 'react-medium-image-zoom'
 type Props = {
   product: IProduct
   body: string
+  pageUrl: string
 }
 
-const Product: NextPage<Props> = ({ product, body }) => {
+const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
   const router = useRouter()
   const status = convertToStatus(product)
   const [preview, setPreview] = useState(product.ogimage.url)
@@ -54,9 +55,12 @@ const Product: NextPage<Props> = ({ product, body }) => {
 
   return (
     <>
-      <Head>
-        <title>{product.title}</title>
-      </Head>
+      <Meta
+        title={product.title}
+        description={product.description}
+        pageUrl={pageUrl}
+        pageImgUrl={product.ogimage.url}
+      />
       <Header />
       <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
         <div className="flex flex-col my-2">
@@ -189,11 +193,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const productId: any = context.params?.productId || '1'
   const product = await getProductById(productId)
   const body = convertToHtml(product.body)
+  const pageUrl = config.baseUrl + product.id
 
   return {
     props: {
       product,
       body,
+      pageUrl,
     },
   }
 }

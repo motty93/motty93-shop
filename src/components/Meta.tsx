@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 type Props = {
   title: string
   description: string
@@ -6,7 +8,7 @@ type Props = {
 }
 
 export const Meta: React.FC<Props> = ({ title, description, pageUrl, pageImgUrl }) => (
-  <>
+  <Head>
     <title>{title}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="description" content={description} />
@@ -20,11 +22,11 @@ export const Meta: React.FC<Props> = ({ title, description, pageUrl, pageImgUrl 
     <meta property="og:image" content={pageImgUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@smo_t93" />
     <meta name="twitter:url" content={pageImgUrl} />
     <meta name="twitter:image" content={pageImgUrl} />
     <link rel="canonical" href={pageUrl} />
     <link rel="icon" href="/favicon.ico" />
-  </>
+  </Head>
 )
