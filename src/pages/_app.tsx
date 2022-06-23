@@ -20,9 +20,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:title" content={title} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site" content={title} />
-        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="/images/hero.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@smo_t93" />
         <meta name="color-scheme" content="light dark" />
+        <meta name="description" content={description} />
         <link rel="canonical" href={pageUrl} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
