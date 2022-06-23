@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const title = config.siteMeta.title
   const pageUrl = config.baseUrl
   const description = config.siteMeta.description
+  const pageImgUrl = pageUrl + '/images/hero.jpg'
 
   return (
     <>
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:site" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content="/images/hero.jpg" />
+        <meta property="og:image" content={pageImgUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@smo_t93" />
         <meta name="color-scheme" content="light dark" />
