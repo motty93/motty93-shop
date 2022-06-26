@@ -22,7 +22,7 @@ export interface IProduct extends MicroCMSListContent {
   brand: string
   applied: boolean
   categories: ICategory[]
-  images?: IMicroCmsImageType[]
+  images?: ProductImage[]
 }
 
 export interface ICategory extends MicroCMSListContent {
@@ -33,17 +33,16 @@ export type MicroCmsResponse<T> = MicroCMSListResponse<T>
 
 export type ContentBase = MicroCMSListContent
 
+export interface ProductImage {
+  id: string
+  product_image: IMicroCmsImageType
+}
+
 export interface IMicroCmsImageType {
   url: string
   height: number
   width: number
 }
-
-// export interface IDraftResponse {
-//   blog: IBlog
-//   toc: TocTypes[]
-//   body: string
-// }
 
 export type Response<T = any> = {
   data: T

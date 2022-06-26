@@ -21,9 +21,9 @@ type Props = {
 const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
   const router = useRouter()
   const status = convertToStatus(product)
-  const [preview, setPreview] = useState(product.ogimage.url)
-  const [check, setCheck] = useState(false)
-  const [htmlString, setHtmlString] = useState('')
+  const [preview, setPreview] = useState<string>('')
+  const [check, setCheck] = useState<boolean>(false)
+  const [htmlString, setHtmlString] = useState<string>('')
 
   const onSelectPreview = (e) => setPreview(e.target.src)
   const onClickChecked = () => setCheck(!check)
@@ -33,7 +33,8 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
       // XSS対策
       setHtmlString(DOMPurify.sanitize(body))
     }
-  }, [htmlString])
+    setPreview(product.ogimage.url)
+  }, [htmlString, preview])
 
   useEffect(() => {
     if (htmlString.length > 0) {
@@ -52,6 +53,8 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
   if (router.isFallback) {
     return <>loading</>
   }
+  // console.log(product.ogimage.url)
+  // console.log(product.images[0].product_image.url)
 
   return (
     <>
@@ -77,11 +80,11 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
           </div>
           <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
-            <div className="md:w-6/12 mx-auto">
+            <div className="md:w-6/12 mx-auto text-center">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 {preview && (
                   <Image
-                    src={`${product.ogimage.url}?w=820&q=100`}
+                    src={`${preview}?w=820&q=100`}
                     alt="ogimage"
                     width={product.ogimage.width}
                     height={product.ogimage.height}
@@ -105,9 +108,9 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </p>
               {product.images &&
                 product.images.map((image) => (
-                  <p className="relative cursor-pointer mx-3 rounded-md w-20" key={image.url}>
+                  <p className="relative cursor-pointer mx-3 rounded-md w-20" key={image.id}>
                     <Image
-                      src={image.url}
+                      src={`${image.product_image.url}?w=820&q=100`}
                       layout="fill"
                       objectFit="contain"
                       alt="image"
