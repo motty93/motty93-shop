@@ -22,7 +22,7 @@ export const Hero: NextPage = () => {
           <p className="mb-5 text-sm whitespace-pre-wrap md:text-base lg:text-lg">
             {config.siteMeta.description}
           </p>
-          <button className="btn btn-primary" onClick={scrollToProducts}>
+          <button className="btn btn-primary cursor-pointer" onClick={scrollToProducts}>
             さあ、買え
           </button>
         </div>

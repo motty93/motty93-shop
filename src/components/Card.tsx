@@ -11,7 +11,7 @@ export const Card: React.FC<Props> = ({ product }) => {
 
   return (
     <Link href="/[productId]" as={`/${product.id}`}>
-      <a className="mb-4 w-64 shadow-xl transition hover:transform hover:duration-300 hover:-translate-y-3 hover:cursor-pointer md:w-96 md:h-auto card card-compact bg-base-100 active:bg-base-200">
+      <a className="mb-4 w-64 shadow-xl transition hover:transform hover:duration-300 hover:-translate-y-3 cursor-pointer md:w-96 md:h-auto card card-compact bg-base-100 active:bg-base-200">
         <figure className="pt-3 md:pt-6">
           <img className="w-32 h-28 md:w-64 md:h-auto" src={`${product.ogimage.url}`} alt={product.brand} />
         </figure>
