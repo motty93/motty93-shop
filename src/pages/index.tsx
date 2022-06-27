@@ -10,7 +10,7 @@ type Props = {
 const Home: NextPage<Props> = ({ products }) => (
   <>
     <Hero />
-    <main className="m-14 h-full">
+    <main className={`m-14 h-auto ${products.length < 5 && 'md:h-full'}`}>
       <h1 className="mb-6 text-xl font-bold text-center md:text-2xl" id="product-title">
         いらないもの一覧
       </h1>
