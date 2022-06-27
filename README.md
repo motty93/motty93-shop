@@ -1,8 +1,11 @@
 ## THE SHOP MOT
 ### Tech
 - Next.js
-- daisyUI ×TailwindCSS
+- TailwindCSS
+- daisyUI
 - Recoil
-- MicroCMS
+- microCMS
 - Imgix
+- Google Cloud Storage
 - Vercel
+- LINE Notify
