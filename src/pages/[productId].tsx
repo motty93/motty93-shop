@@ -1,7 +1,7 @@
 import { Breadcrumb, Header, Meta, Modal } from '@/components'
 import { convertToHtml } from '@/scripts/htmlUtil'
 import { config } from '@/site.config'
-import { IProduct } from '@/types'
+import { IMicroCmsImageType, IProduct } from '@/types'
 import { getAllProducts, getProductById } from '@/utils'
 import { convertToStatus } from '@/utils/buyStatus'
 import DOMPurify from 'dompurify'
@@ -21,11 +21,11 @@ type Props = {
 const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
   const router = useRouter()
   const status = convertToStatus(product)
-  const [preview, setPreview] = useState<string>('')
+  const [preview, setPreview] = useState<IMicroCmsImageType>(product.ogimage)
   const [check, setCheck] = useState<boolean>(false)
   const [htmlString, setHtmlString] = useState<string>('')
 
-  const onSelectPreview = (e) => setPreview(e.target.src)
+  const onSelectPreview = (image: IMicroCmsImageType) => setPreview(image)
   const onClickChecked = () => setCheck(!check)
 
   useEffect(() => {
@@ -33,8 +33,7 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
       // XSS対策
       setHtmlString(DOMPurify.sanitize(body))
     }
-    setPreview(product.ogimage.url)
-  }, [htmlString, preview])
+  }, [htmlString])
 
   useEffect(() => {
     if (htmlString.length > 0) {
@@ -53,8 +52,6 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
   if (router.isFallback) {
     return <>loading</>
   }
-  // console.log(product.ogimage.url)
-  // console.log(product.images[0].product_image.url)
 
   return (
     <>
@@ -80,41 +77,37 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
           </div>
           <div className="my-3 text-xl">参考価格：{product.price}円</div>
           <div className="flex flex-col my-6">
-            <div className="md:w-6/12 mx-auto text-center">
+            <div className="flex items-center justify-center md:w-80 h-96 mx-auto">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
-                {preview && (
-                  <Image
-                    src={`${preview}?w=820&q=100`}
-                    alt="ogimage"
-                    width={product.ogimage.width}
-                    height={product.ogimage.height}
-                    priority={true}
-                  />
-                )}
+                <Image
+                  src={`${preview ? preview.url : product.ogimage.url}?w=820`}
+                  alt="ogimage"
+                  width={preview.width ? preview.width : product.ogimage.width}
+                  height={preview.height ? preview.height : product.ogimage.height}
+                  priority={true}
+                />
               </Zoom>
             </div>
             <div className="flex justify-center my-4 h-20">
               <p className="relative cursor-pointer mx-3 rounded-md w-20">
-                {preview && (
-                  <Image
-                    src={`${product.ogimage.url}?w=820&q=100`}
-                    layout="fill"
-                    objectFit="contain"
-                    alt="image"
-                    onClick={onSelectPreview}
-                    priority={false}
-                  />
-                )}
+                <Image
+                  src={`${product.ogimage.url}?w=820`}
+                  layout="fill"
+                  objectFit="contain"
+                  alt="image"
+                  onClick={() => onSelectPreview(product.ogimage)}
+                  priority={false}
+                />
               </p>
               {product.images &&
                 product.images.map((image) => (
                   <p className="relative cursor-pointer mx-3 rounded-md w-20" key={image.id}>
                     <Image
-                      src={`${image.product_image.url}?w=820&q=100`}
+                      src={`${image.product_image.url}?w=820`}
                       layout="fill"
                       objectFit="contain"
                       alt="image"
-                      onClick={onSelectPreview}
+                      onClick={() => onSelectPreview(image.product_image)}
                       priority={false}
                     />
                   </p>
