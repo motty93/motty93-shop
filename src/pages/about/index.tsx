@@ -71,11 +71,18 @@ const About: NextPage = () => (
             でお願いします。
           </p>
           <p>
-            商談中、相談の上で配送方法を変更することは可能です（
+            商談中、相談の上配送方法を変更することは可能です（
             <Link href="https://www.post.japanpost.jp/service/e_assist/receive_post.html">
               <a className="underline">ゆうパックの郵便局受取</a>
             </Link>
             など）
+          </p>
+          <p>
+            もしくは、完全に匿名でやりたい場合
+            <Link href="https://paypayfleamarket.yahoo.co.jp/">
+              <a className="underline">Paypayフリマ</a>
+            </Link>
+            でも対応できます。双方相談の上、一番良い形でやり取りできればと思います。
           </p>
         </div>
         <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">特定商取引法に基づく表示</h2>
