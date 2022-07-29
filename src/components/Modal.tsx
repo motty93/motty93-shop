@@ -22,12 +22,12 @@ export const Modal: React.FC<Props> = ({ product }) => {
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <label htmlFor="my-modal" className="modal cursor-pointer">
-        <label className="modal-box relative" htmlFor="">
-          <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
+      <label htmlFor="my-modal" className="cursor-pointer modal">
+        <label className="relative modal-box" htmlFor="">
+          <label htmlFor="my-modal" className="absolute top-2 right-2 btn btn-sm btn-circle">
             ✕
           </label>
-          <h3 className="text-lg font-bold pb-2">申し込み前確認</h3>
+          <h3 className="pb-2 text-lg font-bold">申し込み前確認</h3>
           <p className="py-4">
             購入申し込みをすると、販売者(もてぃ)にLINE通知が届きます。
             <br />

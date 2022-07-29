@@ -62,20 +62,20 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
         pageImgUrl={product.ogimage.url}
       />
       <Header />
-      <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
+      <div className="mx-10 max-w-screen-md md:max-w-screen-lg lg:mx-auto">
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
           <div className="flex items-center">
-            <span className="badge badge-info text-white my-2 ml-1 lg:my-4">{status}</span>
-            {product.discount &&
-              <span className="badge badge-accent text-white my-2 ml-1 lg:my-4">値引き中！</span>
-            }
+            <span className="my-2 ml-1 text-white lg:my-4 badge badge-info">{status}</span>
+            {product.discount && (
+              <span className="my-2 ml-1 text-white lg:my-4 badge badge-accent">値引き中！</span>
+            )}
           </div>
-          <h1 className="flex items-center lg:text-2xl font-bold">{product.title}</h1>
+          <h1 className="flex items-center font-bold lg:text-2xl">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
             {product.categories.map((category) => (
-              <span className="badge badge-primary ml-2" key={category.id}>
+              <span className="ml-2 badge badge-primary" key={category.id}>
                 {category.name}
               </span>
             ))}
@@ -85,14 +85,16 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
             {product.discount ? (
               <>
                 <span className="line-through">{product.price}</span>
-                <span className="ml-2 text-red-400">{(product.price - product.discount).toLocaleString()}円</span>
+                <span className="ml-2 text-red-400">
+                  {(product.price - product.discount).toLocaleString()}円
+                </span>
               </>
             ) : (
               <span>{product.price.toLocaleString()}円</span>
             )}
           </div>
           <div className="flex flex-col my-6">
-            <div className="flex items-center justify-center md:w-80 h-96 mx-auto">
+            <div className="flex justify-center items-center mx-auto h-96 md:w-80">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 <Image
                   src={`${preview ? preview.url : product.ogimage.url}?w=820`}
@@ -104,7 +106,7 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </Zoom>
             </div>
             <div className="flex justify-center my-4 h-20">
-              <p className="relative cursor-pointer mx-3 rounded-md w-20">
+              <p className="relative mx-3 w-20 rounded-md cursor-pointer">
                 <Image
                   src={`${product.ogimage.url}?w=820`}
                   layout="fill"
@@ -116,7 +118,7 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </p>
               {product.images &&
                 product.images.map((image) => (
-                  <p className="relative cursor-pointer mx-3 rounded-md w-20" key={image.id}>
+                  <p className="relative mx-3 w-20 rounded-md cursor-pointer" key={image.id}>
                     <Image
                       src={`${image.product_image.url}?w=820`}
                       layout="fill"
@@ -130,18 +132,18 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="collapse collapse-arrow bg-base-100 rounded-box md:w-1/2 md:mx-auto">
+            <div className="md:mx-auto md:w-1/2 collapse collapse-arrow bg-base-100 rounded-box">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title md:text-xl font-medium">出品理由</div>
+              <div className="font-medium md:text-xl collapse-title">出品理由</div>
               <div className="collapse-content">
-                <p className="md:text-lg whitespace-pre-wrap">{product.description}</p>
+                <p className="whitespace-pre-wrap md:text-lg">{product.description}</p>
               </div>
             </div>
-            <div className="collapse collapse-arrow bg-base-100 rounded-box md:w-1/2 mx-auto">
+            <div className="mx-auto md:w-1/2 collapse collapse-arrow bg-base-100 rounded-box">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title md:text-xl font-medium">商品説明</div>
+              <div className="font-medium md:text-xl collapse-title">商品説明</div>
               <div className="collapse-content">
-                <div className="md:text-lg whitespace-pre-wrap">
+                <div className="whitespace-pre-wrap md:text-lg">
                   {htmlString.length > 0 && (
                     <div className="post" dangerouslySetInnerHTML={{ __html: htmlString }} />
                   )}
@@ -149,14 +151,14 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col my-5 md:my-10 mx-auto">
+          <div className="flex flex-col my-5 mx-auto md:my-10">
             {product.status[0] === 'buying' ? (
               <>
                 <p className="flex items-center">
                   <input
                     type="checkbox"
                     checked={check}
-                    className="checkbox my-3 mr-2"
+                    className="my-3 mr-2 checkbox"
                     onChange={onClickChecked}
                   />
                   <Link href="/about">

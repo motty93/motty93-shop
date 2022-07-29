@@ -5,7 +5,7 @@ import Link from 'next/link'
 const About: NextPage = () => (
   <>
     <Header />
-    <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
+    <div className="mx-10 max-w-screen-md md:max-w-screen-lg lg:mx-auto">
       <div className="flex flex-col my-10 leading-relaxed">
         <Breadcrumb title="このサイトについて" />
         <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">このサイトについて</h2>

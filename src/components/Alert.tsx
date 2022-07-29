@@ -1,10 +1,10 @@
 export const Alert: React.FC = () => (
-  <div className="fixed left-0 bottom-3 animate-fadeOut md:left-auto md:right-3">
-    <div className="alert alert-success shadow-lg">
+  <div className="fixed bottom-3 left-0 animate-fadeOut md:right-3 md:left-auto">
+    <div className="shadow-lg alert alert-success">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-current flex-shrink-0 h-6 w-6"
+          className="shrink-0 w-6 h-6 stroke-current"
           fill="none"
           viewBox="0 0 24 24">
           <path

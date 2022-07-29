@@ -6,6 +6,7 @@
     "start:dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "fmt": "npx prettier --write \"src/**/*.ts\"",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },

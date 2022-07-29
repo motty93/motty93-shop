@@ -12,8 +12,8 @@ const nextConfig = {
       'i.gyazo.com',
       'grandsaisonmotty.imgix.net',
       'placeimg.com',
-      'localhost',
       'shop.motty93.com',
+      'localhost',
     ],
   },
 }
