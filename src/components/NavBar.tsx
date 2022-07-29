@@ -4,12 +4,12 @@ import Link from 'next/link'
 export const NavBar: NextPage = () => (
   <div className="navbar bg-base-100">
     <div className="flex-1">
-      <Link className="text-xl normal-case btn btn-ghost" href="/">
+      <Link className="btn btn-ghost text-xl normal-case" href="/">
         The shop&lsquo;s もてぃ
       </Link>
     </div>
     <div className="flex-none">
-      <ul className="p-0 menu menu-horizontal">
+      <ul className="menu menu-horizontal p-0">
         <li>
           <Link href="https://www.twitter.com/">twitter</Link>
         </li>

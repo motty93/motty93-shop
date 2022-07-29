@@ -11,10 +11,10 @@ const Home: NextPage<Props> = ({ products }) => (
   <>
     <Hero />
     <main className={`m-14 h-auto ${products.length < 5 && 'md:h-full'}`}>
-      <h1 className="mb-6 text-xl font-bold text-center md:text-2xl" id="product-title">
+      <h1 className="mb-6 text-center text-xl font-bold md:text-2xl" id="product-title">
         いらないもの一覧
       </h1>
-      <div className="flex flex-wrap gap-7 justify-center items-center">
+      <div className="flex flex-wrap items-center justify-center gap-7">
         {products.map((product) => (
           <Card product={product} key={product.id} />
         ))}

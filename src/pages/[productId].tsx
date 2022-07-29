@@ -63,19 +63,19 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
       />
       <Header />
       <div className="mx-10 max-w-screen-md md:max-w-screen-lg lg:mx-auto">
-        <div className="flex flex-col my-2">
+        <div className="my-2 flex flex-col">
           <Breadcrumb product={product} />
           <div className="flex items-center">
-            <span className="my-2 ml-1 text-white lg:my-4 badge badge-info">{status}</span>
+            <span className="badge badge-info my-2 ml-1 text-white lg:my-4">{status}</span>
             {product.discount && (
-              <span className="my-2 ml-1 text-white lg:my-4 badge badge-accent">値引き中！</span>
+              <span className="badge badge-accent my-2 ml-1 text-white lg:my-4">値引き中！</span>
             )}
           </div>
           <h1 className="flex items-center font-bold lg:text-2xl">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
             {product.categories.map((category) => (
-              <span className="ml-2 badge badge-primary" key={category.id}>
+              <span className="badge badge-primary ml-2" key={category.id}>
                 {category.name}
               </span>
             ))}
@@ -93,8 +93,8 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               <span>{product.price.toLocaleString()}円</span>
             )}
           </div>
-          <div className="flex flex-col my-6">
-            <div className="flex justify-center items-center mx-auto h-96 md:w-80">
+          <div className="my-6 flex flex-col">
+            <div className="mx-auto flex h-96 items-center justify-center md:w-80">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
                 <Image
                   src={`${preview ? preview.url : product.ogimage.url}?w=820`}
@@ -105,8 +105,8 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
                 />
               </Zoom>
             </div>
-            <div className="flex justify-center my-4 h-20">
-              <p className="relative mx-3 w-20 rounded-md cursor-pointer">
+            <div className="my-4 flex h-20 justify-center">
+              <p className="relative mx-3 w-20 cursor-pointer rounded-md">
                 <Image
                   src={`${product.ogimage.url}?w=820`}
                   layout="fill"
@@ -118,7 +118,7 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </p>
               {product.images &&
                 product.images.map((image) => (
-                  <p className="relative mx-3 w-20 rounded-md cursor-pointer" key={image.id}>
+                  <p className="relative mx-3 w-20 cursor-pointer rounded-md" key={image.id}>
                     <Image
                       src={`${image.product_image.url}?w=820`}
                       layout="fill"
@@ -132,16 +132,16 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="md:mx-auto md:w-1/2 collapse collapse-arrow bg-base-100 rounded-box">
+            <div className="collapse collapse-arrow rounded-box bg-base-100 md:mx-auto md:w-1/2">
               <input type="checkbox" className="peer" />
-              <div className="font-medium md:text-xl collapse-title">出品理由</div>
+              <div className="collapse-title font-medium md:text-xl">出品理由</div>
               <div className="collapse-content">
                 <p className="whitespace-pre-wrap md:text-lg">{product.description}</p>
               </div>
             </div>
-            <div className="mx-auto md:w-1/2 collapse collapse-arrow bg-base-100 rounded-box">
+            <div className="collapse collapse-arrow rounded-box mx-auto bg-base-100 md:w-1/2">
               <input type="checkbox" className="peer" />
-              <div className="font-medium md:text-xl collapse-title">商品説明</div>
+              <div className="collapse-title font-medium md:text-xl">商品説明</div>
               <div className="collapse-content">
                 <div className="whitespace-pre-wrap md:text-lg">
                   {htmlString.length > 0 && (
@@ -151,14 +151,14 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col my-5 mx-auto md:my-10">
+          <div className="my-5 mx-auto flex flex-col md:my-10">
             {product.status[0] === 'buying' ? (
               <>
                 <p className="flex items-center">
                   <input
                     type="checkbox"
                     checked={check}
-                    className="my-3 mr-2 checkbox"
+                    className="checkbox my-3 mr-2"
                     onChange={onClickChecked}
                   />
                   <Link href="/about">
@@ -168,7 +168,7 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
                   </Link>
                   を確認して同意
                 </p>
-                <label htmlFor="my-modal" className={`btn btn-${check ? 'active' : 'disabled'} modal-button`}>
+                <label htmlFor="my-modal" className={`btn btn${check ? 'active' : 'disabled'} modal-button`}>
                   申し込む
                 </label>
                 <Modal product={product} />

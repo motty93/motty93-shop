@@ -8,7 +8,7 @@ type Props = {
 
 export const Breadcrumb: React.FC<Props> = (props) => {
   return (
-    <div className="text-sm breadcrumbs">
+    <div className="breadcrumbs text-sm">
       <ul>
         <li>
           <Link href="/">

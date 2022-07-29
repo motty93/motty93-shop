@@ -2,19 +2,19 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 
 export const Footer: NextPage = () => (
-  <footer className="p-10 rounded footer footer-center bg-base-200 text-base-content">
+  <footer className="footer footer-center rounded bg-base-200 p-10 text-base-content">
     <div className="grid grid-flow-col gap-4">
       <Link href="/">
-        <a className="link link-hover">ホーム</a>
+        <a className="link-hover link">ホーム</a>
       </Link>
       <Link href="/about">
-        <a className="link link-hover">このサイトについて</a>
+        <a className="link-hover link">このサイトについて</a>
       </Link>
     </div>
     <div>
       <div className="grid grid-flow-col gap-4">
         <Link href="https://www.twitter.com/smo_t93">
-          <a className="link link-hover" target="_blank">
+          <a className="link-hover link" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -26,7 +26,7 @@ export const Footer: NextPage = () => (
           </a>
         </Link>
         <Link href="https://github.com/motty93/motty93-shop">
-          <a className="link link-hover" target="_blank">
+          <a className="link-hover link" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -38,7 +38,7 @@ export const Footer: NextPage = () => (
           </a>
         </Link>
         <Link href="#">
-          <a className="link link-hover">
+          <a className="link-hover link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

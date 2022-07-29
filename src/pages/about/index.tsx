@@ -6,7 +6,7 @@ const About: NextPage = () => (
   <>
     <Header />
     <div className="mx-10 max-w-screen-md md:max-w-screen-lg lg:mx-auto">
-      <div className="flex flex-col my-10 leading-relaxed">
+      <div className="my-10 flex flex-col leading-relaxed">
         <Breadcrumb title="このサイトについて" />
         <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">このサイトについて</h2>
         <div className="my-4 text-base md:text-lg">
@@ -20,7 +20,7 @@ const About: NextPage = () => (
           </p>
           <p>以下は実装していないので、ご留意の上購入お願いします。</p>
           <div className="my-3">
-            <ul className="px-6 list-disc">
+            <ul className="list-disc px-6">
               <li>決済手段</li>
               <li>在庫のリアルタイム更新</li>
               <li>サイトからのお問い合わせ</li>
@@ -124,7 +124,7 @@ const About: NextPage = () => (
         </div>
         <h2 className="mt-4 text-2xl font-bold decoration-emerald-200">技術スタック（興味ないと思うけど）</h2>
         <div className="my-3 text-base md:text-lg">
-          <ul className="px-6 list-disc">
+          <ul className="list-disc px-6">
             <li>Next.js</li>
             <li>TailwindCSS</li>
             <li>daisyUI</li>
