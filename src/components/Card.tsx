@@ -28,7 +28,16 @@ export const Card: React.FC<Props> = ({ product }) => {
             <span className="text-xs md:text-sm badge badge-secondary">{product.condition}</span>
             <span className="text-xs md:text-sm badge badge-info text-white mx-2">{status}</span>
           </div>
-          <p className="text-xs md:text-base">¥{product.price.toLocaleString()}</p>
+          <p className="text-xs md:text-base">
+            {product.discount ? (
+              <>
+                <span className="line-through">¥{product.price}</span>
+                <span className="ml-1 text-red-400">¥{(product.price - product.discount).toLocaleString()}</span>
+              </>
+            ) : (
+              <span>¥{product.price.toLocaleString()}</span>
+            )}
+          </p>
           <p className="text-xs whitespace-pre-wrap md:text-base">{product.description}</p>
           <div className="justify-end card-actions">
             {product.categories.map((category) => (

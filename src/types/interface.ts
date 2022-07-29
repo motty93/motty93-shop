@@ -19,6 +19,7 @@ export interface IProduct extends MicroCMSListContent {
   status: BuyingStatus[]
   condition: string
   price: number
+  discount: number
   brand: string
   applied: boolean
   categories: ICategory[]

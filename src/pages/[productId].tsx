@@ -65,7 +65,12 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
       <div className="mx-10 lg:mx-auto max-w-screen-md md:max-w-screen-lg">
         <div className="flex flex-col my-2">
           <Breadcrumb product={product} />
-          <span className="badge badge-info text-white my-2 lg:my-4">{status}</span>
+          <div className="flex items-center">
+            <span className="badge badge-info text-white my-2 ml-1 lg:my-4">{status}</span>
+            {product.discount &&
+              <span className="badge badge-accent text-white my-2 ml-1 lg:my-4">値引き中！</span>
+            }
+          </div>
           <h1 className="flex items-center lg:text-2xl font-bold">{product.title}</h1>
           <div className="flex items-center">
             カテゴリー
@@ -75,7 +80,17 @@ const Product: NextPage<Props> = ({ product, body, pageUrl }) => {
               </span>
             ))}
           </div>
-          <div className="my-3 text-xl">参考価格：{product.price}円</div>
+          <div className="my-3 text-xl">
+            参考価格：
+            {product.discount ? (
+              <>
+                <span className="line-through">{product.price}</span>
+                <span className="ml-2 text-red-400">{(product.price - product.discount).toLocaleString()}円</span>
+              </>
+            ) : (
+              <span>{product.price.toLocaleString()}円</span>
+            )}
+          </div>
           <div className="flex flex-col my-6">
             <div className="flex items-center justify-center md:w-80 h-96 mx-auto">
               <Zoom overlayBgColorStart="rgba(255,255,255,0)" overlayBgColorEnd="rgba(0, 0, 0, 0.89)">
