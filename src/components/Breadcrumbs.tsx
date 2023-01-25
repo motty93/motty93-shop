@@ -11,7 +11,7 @@ export const Breadcrumb: React.FC<Props> = (props) => {
     <div className="breadcrumbs text-sm">
       <ul>
         <li>
-          <Link href="/">
+          <Link href="/#products">
             <a>ホーム</a>
           </Link>
         </li>

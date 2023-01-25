@@ -1,4 +1,5 @@
 import { config } from '@/site.config'
+import Link from 'next/link'
 import { NextPage } from 'next'
 import Image from 'next/image'
 
@@ -23,7 +24,11 @@ export const Hero: NextPage = () => {
             {config.siteMeta.description}
           </p>
           <button className="btn btn-primary cursor-pointer" onClick={scrollToProducts}>
-            さあ、買え
+            <Link href="#products">
+              <a href="">
+                さあ、買え
+              </a>
+            </Link>
           </button>
         </div>
       </div>

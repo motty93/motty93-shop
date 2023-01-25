@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const Footer: NextPage = () => (
   <footer className="footer footer-center rounded bg-base-200 p-10 text-base-content">
     <div className="grid grid-flow-col gap-4">
-      <Link href="/">
+      <Link href="/#products">
         <a className="link-hover link">ホーム</a>
       </Link>
       <Link href="/about">
