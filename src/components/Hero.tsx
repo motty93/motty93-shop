@@ -25,9 +25,7 @@ export const Hero: NextPage = () => {
           </p>
           <button className="btn btn-primary cursor-pointer" onClick={scrollToProducts}>
             <Link href="#products">
-              <a href="">
-                さあ、買え
-              </a>
+              <a href="">さあ、買え</a>
             </Link>
           </button>
         </div>
