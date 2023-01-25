@@ -38,7 +38,7 @@ export const Footer: NextPage = () => (
           </a>
         </Link>
         <Link href="#">
-          <a className="link-hover link">
+          <a className="link-hover link" onClick={() => alert('リンク張ってないですよー')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
